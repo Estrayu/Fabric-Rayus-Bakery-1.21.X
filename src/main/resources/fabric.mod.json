@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "rayus-bakery",
+	"version": "${version}",
+	"name": "Rayu's Bakery",
+	"description": "This is a vanilla plus mod that adds more fruits, desserts, and more to Minecraft! This is a current side project that I am working on.",
+	"authors": [
+		"Estrayu"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/rayus-bakery/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.rayusbakery.modid.RayusBakery"
+		],
+		"client": [
+			"net.rayusbakery.modid.RayusBakeryClient"
+		],
+		"fabric-datagen": [
+			"net.rayusbakery.modid.RayusBakeryDataGenerator"
+		]
+	},
+	"mixins": [
+		"rayus-bakery.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.5",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

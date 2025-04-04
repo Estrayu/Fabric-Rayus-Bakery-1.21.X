@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#$#",
+    " M ",
+    "LFL"
+  ],
+  "key": {
+    "#": "minecraft:sugar",
+    "$": "minecraft:egg",
+    "M": "minecraft:milk_bucket",
+    "L": "rayus-bakery:lemon",
+    "F": "rayus-bakery:flour_sack"
+  },
+
+  "result": {
+    "count": 4,
+    "id": "rayus-bakery:lemon_sugar_cookie"
+  }
+}

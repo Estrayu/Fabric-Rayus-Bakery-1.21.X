@@ -1,0 +1,70 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "rayus-bakery:block/woodtexture",
+		"1": "rayus-bakery:block/chopping_board_base",
+		"particle": "rayus-bakery:block/woodtexture"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [12, 1, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [0, 5.5, 4, 6], "texture": "#1"},
+				"east": {"uv": [0, 5, 5, 5.5], "texture": "#1"},
+				"south": {"uv": [4, 5.5, 8, 6], "texture": "#1"},
+				"west": {"uv": [5, 5, 10, 5.5], "texture": "#1"},
+				"up": {"uv": [4, 5, 0, 0], "texture": "#1"},
+				"down": {"uv": [8, 0, 4, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 0, 2],
+			"to": [9, 1, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 2]},
+			"faces": {
+				"north": {"uv": [2, 2, 0, 0], "texture": "#0"},
+				"east": {"uv": [2, 2, 0, 0], "texture": "#0"},
+				"south": {"uv": [2, 2, 0, 0], "texture": "#0"},
+				"west": {"uv": [2, 2, 0, 0], "texture": "#0"},
+				"up": {"uv": [2, 2, 0, 0], "texture": "#0"},
+				"down": {"uv": [2, 2, 0, 0], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [180, 0, 90],
+			"translation": [-7.5, -0.75, -5.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [180, 0, 90],
+			"translation": [-7.6, -0.75, -5.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [-160, 8, 110],
+			"translation": [-1.5, 1, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-160, 8, 110],
+			"translation": [-1.5, 1, 0]
+		},
+		"ground": {
+			"rotation": [120, 90, -20],
+			"translation": [0, -9, 9]
+		},
+		"gui": {
+			"rotation": [90, -135, 0],
+			"translation": [0, -0.5, 0]
+		},
+		"head": {
+			"translation": [0, 14.5, 0]
+		},
+		"fixed": {
+			"rotation": [-180, -90, -90],
+			"translation": [0, 0, -8]
+		}
+	}
+}

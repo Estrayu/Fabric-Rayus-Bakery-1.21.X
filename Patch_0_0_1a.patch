@@ -1,0 +1,1797 @@
+Subject: [PATCH] Patch 0.0.1a
+---
+Index: src/main/java/net/rayusbakery/modid/block/ModBlocks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/block/ModBlocks.java b/src/main/java/net/rayusbakery/modid/block/ModBlocks.java
+new file mode 100644
+--- /dev/null	(date 1743722286527)
++++ b/src/main/java/net/rayusbakery/modid/block/ModBlocks.java	(date 1743722286527)
+@@ -0,0 +1,39 @@
++package net.rayusbakery.modid.block;
++
++import net.minecraft.block.AbstractBlock;
++import net.minecraft.block.Block;
++import net.minecraft.item.BlockItem;
++import net.minecraft.item.Item;
++import net.minecraft.registry.Registries;
++import net.minecraft.registry.Registry;
++import net.minecraft.registry.RegistryKey;
++import net.minecraft.registry.RegistryKeys;
++import net.minecraft.sound.BlockSoundGroup;
++import net.minecraft.util.Identifier;
++import net.rayusbakery.modid.RayusBakery;
++import net.rayusbakery.modid.block.custom.Chopping_Board;
++
++public class ModBlocks {
++
++    //chopping board
++    public static final Block CHOPPING_BOARD = registerBlock("chopping_board",
++            AbstractBlock.Settings.create().nonOpaque());
++
++    private static Block registerBlock(String name, AbstractBlock.Settings blockSettings) {
++        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(RayusBakery.MOD_ID, name));
++        Block block = new Block(blockSettings.registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(RayusBakery.MOD_ID, name))));
++        registerBlockItem(name, block);
++        return Registry.register(Registries.BLOCK, key, block);
++    }
++
++
++    private static void registerBlockItem(String name, Block block) {
++        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, name));
++        BlockItem item = new BlockItem(block, new Item.Settings().registryKey(key));
++        Registry.register(Registries.ITEM, key, item);
++    }
++
++    public static void registerModBlocks(){
++        RayusBakery.LOGGER.info("Registering Mod Blocks for " + RayusBakery.MOD_ID);
++    }
++}
+Index: src/main/resources/assets/rayus-bakery/models/item/lime.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/lime.json b/src/main/resources/assets/rayus-bakery/models/item/lime.json
+new file mode 100644
+--- /dev/null	(date 1743482361052)
++++ b/src/main/resources/assets/rayus-bakery/models/item/lime.json	(date 1743482361052)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/lime"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/lemon_sugar_cookie.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/lemon_sugar_cookie.json b/src/main/resources/assets/rayus-bakery/items/lemon_sugar_cookie.json
+new file mode 100644
+--- /dev/null	(date 1743485570581)
++++ b/src/main/resources/assets/rayus-bakery/items/lemon_sugar_cookie.json	(date 1743485570581)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/lemon_sugar_cookie"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/lemon_sugar_cookie.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/lemon_sugar_cookie.json b/src/main/resources/assets/rayus-bakery/models/item/lemon_sugar_cookie.json
+new file mode 100644
+--- /dev/null	(date 1743485373340)
++++ b/src/main/resources/assets/rayus-bakery/models/item/lemon_sugar_cookie.json	(date 1743485373340)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/lemon_sugar_cookie"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/cheesecake.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/cheesecake.json b/src/main/resources/assets/rayus-bakery/models/item/cheesecake.json
+new file mode 100644
+--- /dev/null	(date 1743539383171)
++++ b/src/main/resources/assets/rayus-bakery/models/item/cheesecake.json	(date 1743539383171)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/cheesecake"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/key_lime_pie.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/key_lime_pie.json b/src/main/resources/assets/rayus-bakery/models/item/key_lime_pie.json
+new file mode 100644
+--- /dev/null	(date 1743539383164)
++++ b/src/main/resources/assets/rayus-bakery/models/item/key_lime_pie.json	(date 1743539383164)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/key_lime_pie"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/key_lime_pie.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/key_lime_pie.json b/src/main/resources/assets/rayus-bakery/items/key_lime_pie.json
+new file mode 100644
+--- /dev/null	(date 1743539383185)
++++ b/src/main/resources/assets/rayus-bakery/items/key_lime_pie.json	(date 1743539383185)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/key_lime_pie"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/cheesecake.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/cheesecake.json b/src/main/resources/assets/rayus-bakery/items/cheesecake.json
+new file mode 100644
+--- /dev/null	(date 1743539383177)
++++ b/src/main/resources/assets/rayus-bakery/items/cheesecake.json	(date 1743539383177)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/cheesecake"
++  }
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/RayusBakery.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/RayusBakery.java b/src/main/java/net/rayusbakery/modid/RayusBakery.java
+new file mode 100644
+--- /dev/null	(date 1743718054584)
++++ b/src/main/java/net/rayusbakery/modid/RayusBakery.java	(date 1743718054584)
+@@ -0,0 +1,28 @@
++package net.rayusbakery.modid;
++
++import net.fabricmc.api.ModInitializer;
++
++import net.rayusbakery.modid.block.ModBlocks;
++import net.rayusbakery.modid.item.ModItemGroups;
++import net.rayusbakery.modid.item.ModItems;
++import org.slf4j.Logger;
++import org.slf4j.LoggerFactory;
++
++public class RayusBakery implements ModInitializer {
++	public static final String MOD_ID = "rayus-bakery";
++
++	// This logger is used to write text to the console and the log file.
++	// It is considered best practice to use your mod id as the logger's name.
++	// That way, it's clear which mod wrote info, warnings, and errors.
++	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
++
++	@Override
++	public void onInitialize() {
++		ModItemGroups.registerItemGroups();
++		// This code runs as soon as Minecraft is in a mod-load-ready state.
++		// However, some things (like resources) may still be uninitialized.
++		// Proceed with mild caution
++		ModItems.registerModItems();
++		ModBlocks.registerModBlocks();
++	}
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/RayusBakeryDataGenerator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/RayusBakeryDataGenerator.java b/src/main/java/net/rayusbakery/modid/RayusBakeryDataGenerator.java
+new file mode 100644
+--- /dev/null	(date 1743473576060)
++++ b/src/main/java/net/rayusbakery/modid/RayusBakeryDataGenerator.java	(date 1743473576060)
+@@ -0,0 +1,11 @@
++package net.rayusbakery.modid;
++
++import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
++import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
++
++public class RayusBakeryDataGenerator implements DataGeneratorEntrypoint {
++	@Override
++	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
++
++	}
++}
+Index: src/main/resources/assets/rayus-bakery/models/item/cherry.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/cherry.json b/src/main/resources/assets/rayus-bakery/models/item/cherry.json
+new file mode 100644
+--- /dev/null	(date 1743541574434)
++++ b/src/main/resources/assets/rayus-bakery/models/item/cherry.json	(date 1743541574434)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/cherry"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/lang/en_us.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/lang/en_us.json b/src/main/resources/assets/rayus-bakery/lang/en_us.json
+new file mode 100644
+--- /dev/null	(date 1743719656084)
++++ b/src/main/resources/assets/rayus-bakery/lang/en_us.json	(date 1743719656084)
+@@ -0,0 +1,20 @@
++{
++  "item.rayus-bakery.blueberry": "Blueberry",
++  "item.rayus-bakery.cheesecake": "Cheesecake",
++  "item.rayus-bakery.cherry": "Cherry",
++  "item.rayus-bakery.chopping_board": "Chopping Board",
++  "item.rayus-bakery.cinnamon_roll": "Cinnamon Roll",
++  "item.rayus-bakery.croissant": "Croissant",
++  "item.rayus-bakery.dango": "Dango",
++  "item.rayus-bakery.flour_sack": "Flour Sack",
++  "item.rayus-bakery.key_lime_pie": "Key Lime Pie",
++  "item.rayus-bakery.lemon": "Lemon",
++  "item.rayus-bakery.lemon_sugar_cookie": "Lemon Sugar Cookie",
++  "item.rayus-bakery.lime": "Lime",
++  "item.rayus-bakery.orange": "Orange",
++  "item.rayus-bakery.strawberry": "Strawberry",
++  "item.rayus-bakery.strawberry_cake": "Strawberry Cake",
++
++  "itemgroup.rayus-bakery.rayus_bakery_items": "Rayu's Bakery Items",
++  "itemgroup.rayus-bakery.rayus_bakery_blocks": "Rayu's Bakery Blocks"
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/item/ModItemGroups.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/item/ModItemGroups.java b/src/main/java/net/rayusbakery/modid/item/ModItemGroups.java
+new file mode 100644
+--- /dev/null	(date 1743718694294)
++++ b/src/main/java/net/rayusbakery/modid/item/ModItemGroups.java	(date 1743718694294)
+@@ -0,0 +1,57 @@
++package net.rayusbakery.modid.item;
++
++import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
++import net.minecraft.item.ItemGroup;
++import net.minecraft.item.ItemStack;
++import net.minecraft.registry.Registries;
++import net.minecraft.registry.Registry;
++import net.minecraft.text.Text;
++import net.minecraft.util.Identifier;
++import net.rayusbakery.modid.RayusBakery;
++import net.rayusbakery.modid.block.ModBlocks;
++
++public class ModItemGroups {
++    public static final ItemGroup RAYUS_BAKERY_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP,
++            Identifier.of(RayusBakery.MOD_ID, "rayus_bakery_items"),
++            FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.CINNAMON_ROLL))
++                    .displayName(Text.translatable("itemgroup.rayus-bakery.rayus_bakery_items"))
++                    .entries((displayContext, entries) -> {
++
++                        //fruit a-z
++                        entries.add(ModItems.CHERRY);
++                        entries.add(ModItems.BLUEBERRY);
++                        entries.add(ModItems.LEMON);
++                        entries.add(ModItems.LIME);
++                        entries.add(ModItems.ORANGE);
++                        entries.add(ModItems.STRAWBERRY);
++
++                        //ingredients a-z
++                        entries.add(ModItems.FLOUR_SACK);
++
++                        //dessert a-z
++                        entries.add(ModItems.CHEESECAKE);
++                        entries.add(ModItems.DANGO);
++                        entries.add(ModItems.KEY_LIME_PIE);
++                        entries.add(ModItems.LEMON_SUGAR_COOKIE);
++                        entries.add(ModItems.STRAWBERRY_CAKE);
++
++                        //food items a-z
++                        entries.add(ModItems.CINNAMON_ROLL);
++                        entries.add(ModItems.CROISSANT);
++
++                    }).build());
++
++    public static final ItemGroup RAYUS_BAKERY_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
++            Identifier.of(RayusBakery.MOD_ID, "rayus_bakery_blocks"),
++            FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.CHOPPING_BOARD))
++                    .displayName(Text.translatable("itemgroup.rayus-bakery.rayus_bakery_blocks"))
++                    .entries((displayContext, entries) -> {
++
++                        entries.add(ModBlocks.CHOPPING_BOARD);
++
++                    }).build());
++
++    public static void registerItemGroups(){
++        RayusBakery.LOGGER.info("Registering Item Groups for " + RayusBakery.MOD_ID);
++    }
++}
+Index: src/main/resources/assets/rayus-bakery/models/item/lemon.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/lemon.json b/src/main/resources/assets/rayus-bakery/models/item/lemon.json
+new file mode 100644
+--- /dev/null	(date 1743480956795)
++++ b/src/main/resources/assets/rayus-bakery/models/item/lemon.json	(date 1743480956795)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/lemon"
++  }
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/mixin/ExampleMixin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/mixin/ExampleMixin.java b/src/main/java/net/rayusbakery/modid/mixin/ExampleMixin.java
+new file mode 100644
+--- /dev/null	(date 1743473576087)
++++ b/src/main/java/net/rayusbakery/modid/mixin/ExampleMixin.java	(date 1743473576087)
+@@ -0,0 +1,15 @@
++package net.rayusbakery.modid.mixin;
++
++import net.minecraft.server.MinecraftServer;
++import org.spongepowered.asm.mixin.Mixin;
++import org.spongepowered.asm.mixin.injection.At;
++import org.spongepowered.asm.mixin.injection.Inject;
++import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
++
++@Mixin(MinecraftServer.class)
++public class ExampleMixin {
++	@Inject(at = @At("HEAD"), method = "loadWorld")
++	private void init(CallbackInfo info) {
++		// This code is injected into the start of MinecraftServer.loadWorld()V
++	}
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/cherry.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/cherry.json b/src/main/resources/assets/rayus-bakery/items/cherry.json
+new file mode 100644
+--- /dev/null	(date 1743541551310)
++++ b/src/main/resources/assets/rayus-bakery/items/cherry.json	(date 1743541551310)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/cherry"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/rayus-bakery.mixins.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/rayus-bakery.mixins.json b/src/main/resources/rayus-bakery.mixins.json
+new file mode 100644
+--- /dev/null	(date 1743473575955)
++++ b/src/main/resources/rayus-bakery.mixins.json	(date 1743473575955)
+@@ -0,0 +1,11 @@
++{
++	"required": true,
++	"package": "net.rayusbakery.modid.mixin",
++	"compatibilityLevel": "JAVA_21",
++	"mixins": [
++		"ExampleMixin"
++	],
++	"injectors": {
++		"defaultRequire": 1
++	}
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/datagen/ModModelProvider.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/datagen/ModModelProvider.java b/src/main/java/net/rayusbakery/modid/datagen/ModModelProvider.java
+new file mode 100644
+--- /dev/null	(date 1743722283144)
++++ b/src/main/java/net/rayusbakery/modid/datagen/ModModelProvider.java	(date 1743722283144)
+@@ -0,0 +1,4 @@
++package net.rayusbakery.modid.datagen;
++
++public class ModModelProvider {
++}
+Index: src/main/resources/fabric.mod.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/fabric.mod.json b/src/main/resources/fabric.mod.json
+new file mode 100644
+--- /dev/null	(date 1743475347903)
++++ b/src/main/resources/fabric.mod.json	(date 1743475347903)
+@@ -0,0 +1,40 @@
++{
++	"schemaVersion": 1,
++	"id": "rayus-bakery",
++	"version": "${version}",
++	"name": "Rayu's Bakery",
++	"description": "This is a vanilla plus mod that adds more fruits, desserts, and more to Minecraft! This is a current side project that I am working on.",
++	"authors": [
++		"Estrayu"
++	],
++	"contact": {
++		"homepage": "https://fabricmc.net/",
++		"sources": "https://github.com/FabricMC/fabric-example-mod"
++	},
++	"license": "MIT",
++	"icon": "assets/rayus-bakery/icon.png",
++	"environment": "*",
++	"entrypoints": {
++		"main": [
++			"net.rayusbakery.modid.RayusBakery"
++		],
++		"client": [
++			"net.rayusbakery.modid.RayusBakeryClient"
++		],
++		"fabric-datagen": [
++			"net.rayusbakery.modid.RayusBakeryDataGenerator"
++		]
++	},
++	"mixins": [
++		"rayus-bakery.mixins.json"
++	],
++	"depends": {
++		"fabricloader": ">=0.16.10",
++		"minecraft": "~1.21.5",
++		"java": ">=21",
++		"fabric-api": "*"
++	},
++	"suggests": {
++		"another-mod": "*"
++	}
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/blueberry.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/blueberry.json b/src/main/resources/assets/rayus-bakery/items/blueberry.json
+new file mode 100644
+--- /dev/null	(date 1743544161147)
++++ b/src/main/resources/assets/rayus-bakery/items/blueberry.json	(date 1743544161147)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/blueberry"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/blueberry.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/blueberry.json b/src/main/resources/assets/rayus-bakery/models/item/blueberry.json
+new file mode 100644
+--- /dev/null	(date 1743544161141)
++++ b/src/main/resources/assets/rayus-bakery/models/item/blueberry.json	(date 1743544161141)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/blueberry"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/strawberry.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/strawberry.json b/src/main/resources/assets/rayus-bakery/items/strawberry.json
+new file mode 100644
+--- /dev/null	(date 1743544941442)
++++ b/src/main/resources/assets/rayus-bakery/items/strawberry.json	(date 1743544941442)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/strawberry"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/strawberry.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/strawberry.json b/src/main/resources/assets/rayus-bakery/models/item/strawberry.json
+new file mode 100644
+--- /dev/null	(date 1743544941436)
++++ b/src/main/resources/assets/rayus-bakery/models/item/strawberry.json	(date 1743544941436)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/strawberry"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/data/rayus-bakery/recipe/lemon_sugar_cookie.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/data/rayus-bakery/recipe/lemon_sugar_cookie.json b/src/main/resources/data/rayus-bakery/recipe/lemon_sugar_cookie.json
+new file mode 100644
+--- /dev/null	(date 1743715427242)
++++ b/src/main/resources/data/rayus-bakery/recipe/lemon_sugar_cookie.json	(date 1743715427242)
+@@ -0,0 +1,20 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "pattern": [
++    "#$#",
++    " M ",
++    "LFL"
++  ],
++  "key": {
++    "#": "minecraft:sugar",
++    "$": "minecraft:egg",
++    "M": "minecraft:milk_bucket",
++    "L": "rayus-bakery:lemon",
++    "F": "rayus-bakery:flour_sack"
++  },
++
++  "result": {
++    "count": 4,
++    "id": "rayus-bakery:lemon_sugar_cookie"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/blockstates/chopping_board.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/blockstates/chopping_board.json b/src/main/resources/assets/rayus-bakery/blockstates/chopping_board.json
+new file mode 100644
+--- /dev/null	(date 1743722962578)
++++ b/src/main/resources/assets/rayus-bakery/blockstates/chopping_board.json	(date 1743722962578)
+@@ -0,0 +1,7 @@
++{
++  "variants":{
++    "":{
++      "model": "rayus-bakery:block/chopping_board"
++    }
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/block/chopping_board.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/block/chopping_board.json b/src/main/resources/assets/rayus-bakery/models/block/chopping_board.json
+new file mode 100644
+--- /dev/null	(date 1743722390016)
++++ b/src/main/resources/assets/rayus-bakery/models/block/chopping_board.json	(date 1743722390016)
+@@ -0,0 +1,70 @@
++{
++	"credit": "Made with Blockbench",
++	"texture_size": [32, 32],
++	"textures": {
++		"0": "rayus-bakery:block/woodtexture",
++		"1": "rayus-bakery:block/chopping_board_base",
++		"particle": "rayus-bakery:block/woodtexture"
++	},
++	"elements": [
++		{
++			"from": [4, 0, 4],
++			"to": [12, 1, 14],
++			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
++			"faces": {
++				"north": {"uv": [0, 5.5, 4, 6], "texture": "#1"},
++				"east": {"uv": [0, 5, 5, 5.5], "texture": "#1"},
++				"south": {"uv": [4, 5.5, 8, 6], "texture": "#1"},
++				"west": {"uv": [5, 5, 10, 5.5], "texture": "#1"},
++				"up": {"uv": [4, 5, 0, 0], "texture": "#1"},
++				"down": {"uv": [8, 0, 4, 5], "texture": "#1"}
++			}
++		},
++		{
++			"from": [7, 0, 2],
++			"to": [9, 1, 4],
++			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 2]},
++			"faces": {
++				"north": {"uv": [2, 2, 0, 0], "texture": "#0"},
++				"east": {"uv": [2, 2, 0, 0], "texture": "#0"},
++				"south": {"uv": [2, 2, 0, 0], "texture": "#0"},
++				"west": {"uv": [2, 2, 0, 0], "texture": "#0"},
++				"up": {"uv": [2, 2, 0, 0], "texture": "#0"},
++				"down": {"uv": [2, 2, 0, 0], "texture": "#0"}
++			}
++		}
++	],
++	"display": {
++		"thirdperson_righthand": {
++			"rotation": [180, 0, 90],
++			"translation": [-7.5, -0.75, -5.25]
++		},
++		"thirdperson_lefthand": {
++			"rotation": [180, 0, 90],
++			"translation": [-7.6, -0.75, -5.25]
++		},
++		"firstperson_righthand": {
++			"rotation": [-160, 8, 110],
++			"translation": [-1.5, 1, 0]
++		},
++		"firstperson_lefthand": {
++			"rotation": [-160, 8, 110],
++			"translation": [-1.5, 1, 0]
++		},
++		"ground": {
++			"rotation": [120, 90, -20],
++			"translation": [0, -9, 9]
++		},
++		"gui": {
++			"rotation": [90, -135, 0],
++			"translation": [0, -0.5, 0]
++		},
++		"head": {
++			"translation": [0, 14.5, 0]
++		},
++		"fixed": {
++			"rotation": [-180, -90, -90],
++			"translation": [0, 0, -8]
++		}
++	}
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/item/ModFoodComponents.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/item/ModFoodComponents.java b/src/main/java/net/rayusbakery/modid/item/ModFoodComponents.java
+new file mode 100644
+--- /dev/null	(date 1743683258478)
++++ b/src/main/java/net/rayusbakery/modid/item/ModFoodComponents.java	(date 1743683258478)
+@@ -0,0 +1,28 @@
++package net.rayusbakery.modid.item;
++
++import net.minecraft.component.type.ConsumableComponent;
++import net.minecraft.component.type.ConsumableComponents;
++import net.minecraft.component.type.FoodComponent;
++import net.minecraft.entity.effect.StatusEffectInstance;
++import net.minecraft.entity.effect.StatusEffects;
++import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
++
++public class ModFoodComponents {
++
++    //health boost consumable component
++    public static final ConsumableComponent HEALTH_BOOST_CONSUMABLE_COMPONENTS = ConsumableComponents.food()
++            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 6 * 20, 1), 1.0f))
++            .build();
++
++    //food components (desserts a-z)
++    public static final FoodComponent CHEESECAKE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
++    public static final FoodComponent DANGO = new FoodComponent.Builder().nutrition(4).saturationModifier(0.2f).build();
++    public static final FoodComponent KEY_LIME_PIE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
++    public static final FoodComponent LEMON_SUGAR_COOKIE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
++    public static final FoodComponent STRAWBERRY_CAKE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
++
++    //food components (food items a-z)
++    public static final FoodComponent CINNAMON_ROLL = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
++    public static final FoodComponent CROISSANT = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
++
++}
+\ No newline at end of file
+Index: src/main/resources/data/rayus-bakery/recipe/key_lime_pie.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/data/rayus-bakery/recipe/key_lime_pie.json b/src/main/resources/data/rayus-bakery/recipe/key_lime_pie.json
+new file mode 100644
+--- /dev/null	(date 1743715427249)
++++ b/src/main/resources/data/rayus-bakery/recipe/key_lime_pie.json	(date 1743715427249)
+@@ -0,0 +1,20 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "pattern": [
++    "#$#",
++    " M ",
++    "LFL"
++  ],
++  "key": {
++    "#": "minecraft:sugar",
++    "$": "minecraft:egg",
++    "M": "minecraft:milk_bucket",
++    "L": "rayus-bakery:lime",
++    "F": "rayus-bakery:flour_sack"
++  },
++
++  "result":{
++    "count": 4,
++    "id": "rayus-bakery:key_lime_pie"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/data/rayus-bakery/recipe/cheesecake.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/data/rayus-bakery/recipe/cheesecake.json b/src/main/resources/data/rayus-bakery/recipe/cheesecake.json
+new file mode 100644
+--- /dev/null	(date 1743715427223)
++++ b/src/main/resources/data/rayus-bakery/recipe/cheesecake.json	(date 1743715427223)
+@@ -0,0 +1,21 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "pattern": [
++    "#$#",
++    " M ",
++    "SFB"
++  ],
++  "key": {
++    "#": "minecraft:sugar",
++    "$": "minecraft:egg",
++    "M": "minecraft:milk_bucket",
++    "S": "rayus-bakery:strawberry",
++    "F": "rayus-bakery:flour_sack",
++    "B": "rayus-bakery:blueberry"
++  },
++
++  "result": {
++    "count": 4,
++    "id": "rayus-bakery:cheesecake"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/chopping_board.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/chopping_board.json b/src/main/resources/assets/rayus-bakery/models/item/chopping_board.json
+new file mode 100644
+--- /dev/null	(date 1743723606575)
++++ b/src/main/resources/assets/rayus-bakery/models/item/chopping_board.json	(date 1743723606575)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:block/chopping_board"
++  }
++}
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+new file mode 100644
+--- /dev/null	(date 1743473575913)
++++ b/build.gradle	(date 1743473575913)
+@@ -0,0 +1,84 @@
++plugins {
++	id 'fabric-loom' version '1.10-SNAPSHOT'
++	id 'maven-publish'
++}
++
++version = project.mod_version
++group = project.maven_group
++
++base {
++	archivesName = project.archives_base_name
++}
++
++repositories {
++	// Add repositories to retrieve artifacts from in here.
++	// You should only use this when depending on other mods because
++	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
++	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
++	// for more information about repositories.
++}
++
++fabricApi {
++	configureDataGeneration {
++		client = true
++	}
++}
++
++dependencies {
++	// To change the versions see the gradle.properties file
++	minecraft "com.mojang:minecraft:${project.minecraft_version}"
++	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
++	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
++
++	// Fabric API. This is technically optional, but you probably want it anyway.
++	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
++	
++}
++
++processResources {
++	inputs.property "version", project.version
++
++	filesMatching("fabric.mod.json") {
++		expand "version": inputs.properties.version
++	}
++}
++
++tasks.withType(JavaCompile).configureEach {
++	it.options.release = 21
++}
++
++java {
++	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
++	// if it is present.
++	// If you remove this line, sources will not be generated.
++	withSourcesJar()
++
++	sourceCompatibility = JavaVersion.VERSION_21
++	targetCompatibility = JavaVersion.VERSION_21
++}
++
++jar {
++	inputs.property "archivesName", project.base.archivesName
++
++	from("LICENSE") {
++		rename { "${it}_${inputs.properties.archivesName}"}
++	}
++}
++
++// configure the maven publication
++publishing {
++	publications {
++		create("mavenJava", MavenPublication) {
++			artifactId = project.archives_base_name
++			from components.java
++		}
++	}
++
++	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
++	repositories {
++		// Add repositories to publish to here.
++		// Notice: This block does NOT have the same function as the block in the top level.
++		// The repositories here will be used for publishing your artifact, not for
++		// retrieving dependencies.
++	}
++}
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1743473575877)
++++ b/.gitignore	(date 1743473575877)
+@@ -0,0 +1,40 @@
++# gradle
++
++.gradle/
++build/
++out/
++classes/
++
++# eclipse
++
++*.launch
++
++# idea
++
++.idea/
++*.iml
++*.ipr
++*.iws
++
++# vscode
++
++.settings/
++.vscode/
++bin/
++.classpath
++.project
++
++# macos
++
++*.DS_Store
++
++# fabric
++
++run/
++
++# java
++
++hs_err_*.log
++replay_*.log
++*.hprof
++*.jfr
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+new file mode 100644
+--- /dev/null	(date 1743475347896)
++++ b/gradle.properties	(date 1743475347896)
+@@ -0,0 +1,17 @@
++# Done to increase the memory available to gradle.
++org.gradle.jvmargs=-Xmx1G
++org.gradle.parallel=true
++
++# Fabric Properties
++# check these on https://fabricmc.net/develop
++minecraft_version=1.21.5
++yarn_mappings=1.21.5+build.1
++loader_version=0.16.10
++
++# Mod Properties
++mod_version=0.0.1-1.21.5
++maven_group=net.rayusbakery.modid
++archives_base_name=rayus-bakery
++
++# Dependencies
++fabric_version=0.119.6+1.21.5
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/orange.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/orange.json b/src/main/resources/assets/rayus-bakery/models/item/orange.json
+new file mode 100644
+--- /dev/null	(date 1743637505009)
++++ b/src/main/resources/assets/rayus-bakery/models/item/orange.json	(date 1743637505009)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/orange"
++  }
++}
+\ No newline at end of file
+Index: .gitattributes
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitattributes b/.gitattributes
+new file mode 100644
+--- /dev/null	(date 1743473576105)
++++ b/.gitattributes	(date 1743473576105)
+@@ -0,0 +1,9 @@
++#
++# https://help.github.com/articles/dealing-with-line-endings/
++#
++# Linux start script should use lf
++/gradlew        text eol=lf
++
++# These are Windows script files and should use crlf
++*.bat           text eol=crlf
++
+Index: gradlew
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradlew b/gradlew
+new file mode 100644
+--- /dev/null	(date 1743473575669)
++++ b/gradlew	(date 1743473575669)
+@@ -0,0 +1,251 @@
++#!/bin/sh
++
++#
++# Copyright © 2015-2021 the original authors.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#      https://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++# SPDX-License-Identifier: Apache-2.0
++#
++
++##############################################################################
++#
++#   Gradle start up script for POSIX generated by Gradle.
++#
++#   Important for running:
++#
++#   (1) You need a POSIX-compliant shell to run this script. If your /bin/sh is
++#       noncompliant, but you have some other compliant shell such as ksh or
++#       bash, then to run this script, type that shell name before the whole
++#       command line, like:
++#
++#           ksh Gradle
++#
++#       Busybox and similar reduced shells will NOT work, because this script
++#       requires all of these POSIX shell features:
++#         * functions;
++#         * expansions «$var», «${var}», «${var:-default}», «${var+SET}»,
++#           «${var#prefix}», «${var%suffix}», and «$( cmd )»;
++#         * compound commands having a testable exit status, especially «case»;
++#         * various built-in commands including «command», «set», and «ulimit».
++#
++#   Important for patching:
++#
++#   (2) This script targets any POSIX shell, so it avoids extensions provided
++#       by Bash, Ksh, etc; in particular arrays are avoided.
++#
++#       The "traditional" practice of packing multiple parameters into a
++#       space-separated string is a well documented source of bugs and security
++#       problems, so this is (mostly) avoided, by progressively accumulating
++#       options in "$@", and eventually passing that to Java.
++#
++#       Where the inherited environment variables (DEFAULT_JVM_OPTS, JAVA_OPTS,
++#       and GRADLE_OPTS) rely on word-splitting, this is performed explicitly;
++#       see the in-line comments for details.
++#
++#       There are tweaks for specific operating systems such as AIX, CygWin,
++#       Darwin, MinGW, and NonStop.
++#
++#   (3) This script is generated from the Groovy template
++#       https://github.com/gradle/gradle/blob/HEAD/platforms/jvm/plugins-application/src/main/resources/org/gradle/api/internal/plugins/unixStartScript.txt
++#       within the Gradle project.
++#
++#       You can find Gradle at https://github.com/gradle/gradle/.
++#
++##############################################################################
++
++# Attempt to set APP_HOME
++
++# Resolve links: $0 may be a link
++app_path=$0
++
++# Need this for daisy-chained symlinks.
++while
++    APP_HOME=${app_path%"${app_path##*/}"}  # leaves a trailing /; empty if no leading path
++    [ -h "$app_path" ]
++do
++    ls=$( ls -ld "$app_path" )
++    link=${ls#*' -> '}
++    case $link in             #(
++      /*)   app_path=$link ;; #(
++      *)    app_path=$APP_HOME$link ;;
++    esac
++done
++
++# This is normally unused
++# shellcheck disable=SC2034
++APP_BASE_NAME=${0##*/}
++# Discard cd standard output in case $CDPATH is set (https://github.com/gradle/gradle/issues/25036)
++APP_HOME=$( cd -P "${APP_HOME:-./}" > /dev/null && printf '%s\n' "$PWD" ) || exit
++
++# Use the maximum available, or set MAX_FD != -1 to use that value.
++MAX_FD=maximum
++
++warn () {
++    echo "$*"
++} >&2
++
++die () {
++    echo
++    echo "$*"
++    echo
++    exit 1
++} >&2
++
++# OS specific support (must be 'true' or 'false').
++cygwin=false
++msys=false
++darwin=false
++nonstop=false
++case "$( uname )" in                #(
++  CYGWIN* )         cygwin=true  ;; #(
++  Darwin* )         darwin=true  ;; #(
++  MSYS* | MINGW* )  msys=true    ;; #(
++  NONSTOP* )        nonstop=true ;;
++esac
++
++CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
++
++
++# Determine the Java command to use to start the JVM.
++if [ -n "$JAVA_HOME" ] ; then
++    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
++        # IBM's JDK on AIX uses strange locations for the executables
++        JAVACMD=$JAVA_HOME/jre/sh/java
++    else
++        JAVACMD=$JAVA_HOME/bin/java
++    fi
++    if [ ! -x "$JAVACMD" ] ; then
++        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++    fi
++else
++    JAVACMD=java
++    if ! command -v java >/dev/null 2>&1
++    then
++        die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++    fi
++fi
++
++# Increase the maximum file descriptors if we can.
++if ! "$cygwin" && ! "$darwin" && ! "$nonstop" ; then
++    case $MAX_FD in #(
++      max*)
++        # In POSIX sh, ulimit -H is undefined. That's why the result is checked to see if it worked.
++        # shellcheck disable=SC2039,SC3045
++        MAX_FD=$( ulimit -H -n ) ||
++            warn "Could not query maximum file descriptor limit"
++    esac
++    case $MAX_FD in  #(
++      '' | soft) :;; #(
++      *)
++        # In POSIX sh, ulimit -n is undefined. That's why the result is checked to see if it worked.
++        # shellcheck disable=SC2039,SC3045
++        ulimit -n "$MAX_FD" ||
++            warn "Could not set maximum file descriptor limit to $MAX_FD"
++    esac
++fi
++
++# Collect all arguments for the java command, stacking in reverse order:
++#   * args from the command line
++#   * the main class name
++#   * -classpath
++#   * -D...appname settings
++#   * --module-path (only if needed)
++#   * DEFAULT_JVM_OPTS, JAVA_OPTS, and GRADLE_OPTS environment variables.
++
++# For Cygwin or MSYS, switch paths to Windows format before running java
++if "$cygwin" || "$msys" ; then
++    APP_HOME=$( cygpath --path --mixed "$APP_HOME" )
++    CLASSPATH=$( cygpath --path --mixed "$CLASSPATH" )
++
++    JAVACMD=$( cygpath --unix "$JAVACMD" )
++
++    # Now convert the arguments - kludge to limit ourselves to /bin/sh
++    for arg do
++        if
++            case $arg in                                #(
++              -*)   false ;;                            # don't mess with options #(
++              /?*)  t=${arg#/} t=/${t%%/*}              # looks like a POSIX filepath
++                    [ -e "$t" ] ;;                      #(
++              *)    false ;;
++            esac
++        then
++            arg=$( cygpath --path --ignore --mixed "$arg" )
++        fi
++        # Roll the args list around exactly as many times as the number of
++        # args, so each arg winds up back in the position where it started, but
++        # possibly modified.
++        #
++        # NB: a `for` loop captures its iteration list before it begins, so
++        # changing the positional parameters here affects neither the number of
++        # iterations, nor the values presented in `arg`.
++        shift                   # remove old arg
++        set -- "$@" "$arg"      # push replacement arg
++    done
++fi
++
++
++# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
++
++# Collect all arguments for the java command:
++#   * DEFAULT_JVM_OPTS, JAVA_OPTS, JAVA_OPTS, and optsEnvironmentVar are not allowed to contain shell fragments,
++#     and any embedded shellness will be escaped.
++#   * For example: A user cannot expect ${Hostname} to be expanded, as it is an environment variable and will be
++#     treated as '${Hostname}' itself on the command line.
++
++set -- \
++        "-Dorg.gradle.appname=$APP_BASE_NAME" \
++        -classpath "$CLASSPATH" \
++        org.gradle.wrapper.GradleWrapperMain \
++        "$@"
++
++# Stop when "xargs" is not available.
++if ! command -v xargs >/dev/null 2>&1
++then
++    die "xargs is not available"
++fi
++
++# Use "xargs" to parse quoted args.
++#
++# With -n1 it outputs one arg per line, with the quotes and backslashes removed.
++#
++# In Bash we could simply go:
++#
++#   readarray ARGS < <( xargs -n1 <<<"$var" ) &&
++#   set -- "${ARGS[@]}" "$@"
++#
++# but POSIX shell has neither arrays nor command substitution, so instead we
++# post-process each arg (as a line of input to sed) to backslash-escape any
++# character that might be a shell metacharacter, then use eval to reverse
++# that process (while maintaining the separation between arguments), and wrap
++# the whole thing up as a single "set" statement.
++#
++# This will of course break if any of these variables contains a newline or
++# an unmatched quote.
++#
++
++eval "set -- $(
++        printf '%s\n' "$DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS" |
++        xargs -n1 |
++        sed ' s~[^-[:alnum:]+,./:=@_]~\\&~g; ' |
++        tr '\n' ' '
++    )" '"$@"'
++
++exec "$JAVACMD" "$@"
+Index: src/main/resources/assets/rayus-bakery/items/strawberry_cake.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/strawberry_cake.json b/src/main/resources/assets/rayus-bakery/items/strawberry_cake.json
+new file mode 100644
+--- /dev/null	(date 1743637727780)
++++ b/src/main/resources/assets/rayus-bakery/items/strawberry_cake.json	(date 1743637727780)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/strawberry_cake"
++  }
++}
+\ No newline at end of file
+Index: gradlew.bat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradlew.bat b/gradlew.bat
+new file mode 100644
+--- /dev/null	(date 1743473575691)
++++ b/gradlew.bat	(date 1743473575691)
+@@ -0,0 +1,94 @@
++@rem
++@rem Copyright 2015 the original author or authors.
++@rem
++@rem Licensed under the Apache License, Version 2.0 (the "License");
++@rem you may not use this file except in compliance with the License.
++@rem You may obtain a copy of the License at
++@rem
++@rem      https://www.apache.org/licenses/LICENSE-2.0
++@rem
++@rem Unless required by applicable law or agreed to in writing, software
++@rem distributed under the License is distributed on an "AS IS" BASIS,
++@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++@rem See the License for the specific language governing permissions and
++@rem limitations under the License.
++@rem
++@rem SPDX-License-Identifier: Apache-2.0
++@rem
++
++@if "%DEBUG%"=="" @echo off
++@rem ##########################################################################
++@rem
++@rem  Gradle startup script for Windows
++@rem
++@rem ##########################################################################
++
++@rem Set local scope for the variables with windows NT shell
++if "%OS%"=="Windows_NT" setlocal
++
++set DIRNAME=%~dp0
++if "%DIRNAME%"=="" set DIRNAME=.
++@rem This is normally unused
++set APP_BASE_NAME=%~n0
++set APP_HOME=%DIRNAME%
++
++@rem Resolve any "." and ".." in APP_HOME to make it shorter.
++for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
++
++@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
++
++@rem Find java.exe
++if defined JAVA_HOME goto findJavaFromJavaHome
++
++set JAVA_EXE=java.exe
++%JAVA_EXE% -version >NUL 2>&1
++if %ERRORLEVEL% equ 0 goto execute
++
++echo. 1>&2
++echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH. 1>&2
++echo. 1>&2
++echo Please set the JAVA_HOME variable in your environment to match the 1>&2
++echo location of your Java installation. 1>&2
++
++goto fail
++
++:findJavaFromJavaHome
++set JAVA_HOME=%JAVA_HOME:"=%
++set JAVA_EXE=%JAVA_HOME%/bin/java.exe
++
++if exist "%JAVA_EXE%" goto execute
++
++echo. 1>&2
++echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME% 1>&2
++echo. 1>&2
++echo Please set the JAVA_HOME variable in your environment to match the 1>&2
++echo location of your Java installation. 1>&2
++
++goto fail
++
++:execute
++@rem Setup the command line
++
++set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
++
++
++@rem Execute Gradle
++"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
++
++:end
++@rem End local scope for the variables with windows NT shell
++if %ERRORLEVEL% equ 0 goto mainEnd
++
++:fail
++rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
++rem the _cmd.exe /c_ return code!
++set EXIT_CODE=%ERRORLEVEL%
++if %EXIT_CODE% equ 0 set EXIT_CODE=1
++if not ""=="%GRADLE_EXIT_CONSOLE%" exit %EXIT_CODE%
++exit /b %EXIT_CODE%
++
++:mainEnd
++if "%OS%"=="Windows_NT" endlocal
++
++:omega
+Index: src/main/resources/assets/rayus-bakery/items/orange.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/orange.json b/src/main/resources/assets/rayus-bakery/items/orange.json
+new file mode 100644
+--- /dev/null	(date 1743637504998)
++++ b/src/main/resources/assets/rayus-bakery/items/orange.json	(date 1743637504998)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/orange"
++  }
++}
+\ No newline at end of file
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle b/settings.gradle
+new file mode 100644
+--- /dev/null	(date 1743473575930)
++++ b/settings.gradle	(date 1743473575930)
+@@ -0,0 +1,10 @@
++pluginManagement {
++	repositories {
++		maven {
++			name = 'Fabric'
++			url = 'https://maven.fabricmc.net/'
++		}
++		mavenCentral()
++		gradlePluginPortal()
++	}
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/item/ModItems.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/item/ModItems.java b/src/main/java/net/rayusbakery/modid/item/ModItems.java
+new file mode 100644
+--- /dev/null	(date 1743683258474)
++++ b/src/main/java/net/rayusbakery/modid/item/ModItems.java	(date 1743683258474)
+@@ -0,0 +1,44 @@
++package net.rayusbakery.modid.item;
++
++import net.fabricmc.fabric.api.networking.v1.S2CPlayChannelEvents;
++import net.minecraft.item.Item;
++import net.minecraft.registry.Registries;
++import net.minecraft.registry.Registry;
++import net.minecraft.registry.RegistryKey;
++import net.minecraft.registry.RegistryKeys;
++import net.minecraft.util.Identifier;
++import net.rayusbakery.modid.RayusBakery;
++
++public class ModItems {
++
++    //fruit a-z
++    public static final Item CHERRY = registerItem("cherry", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "cherry")))));
++    public static final Item BLUEBERRY = registerItem("blueberry", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "blueberry")))));
++    public static final Item LEMON = registerItem("lemon", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "lemon")))));
++    public static final Item LIME = registerItem("lime", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "lime")))));
++    public static final Item ORANGE = registerItem("orange", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "orange")))));
++    public static final Item STRAWBERRY = registerItem("strawberry", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "strawberry")))));
++
++    //ingredients a-z
++    public static final Item FLOUR_SACK = registerItem("flour_sack", new Item(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "flour_sack")))));
++
++    //dessert a-z
++    public static final Item CHEESECAKE = registerItem("cheesecake", new Item(new Item.Settings().food(ModFoodComponents.CHEESECAKE).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID,"cheesecake")))));
++    public static final Item DANGO = registerItem("dango", new Item(new Item.Settings().food(ModFoodComponents.DANGO).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "dango")))));
++    public static final Item KEY_LIME_PIE = registerItem("key_lime_pie", new Item(new Item.Settings().food(ModFoodComponents.KEY_LIME_PIE).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "key_lime_pie")))));
++    public static final Item LEMON_SUGAR_COOKIE = registerItem("lemon_sugar_cookie", new Item(new Item.Settings().food(ModFoodComponents.LEMON_SUGAR_COOKIE).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "lemon_sugar_cookie")))));
++    public static final Item STRAWBERRY_CAKE = registerItem("strawberry_cake", new Item(new Item.Settings().food(ModFoodComponents.STRAWBERRY_CAKE).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "strawberry_cake")))));
++
++    //food items a-z
++    public static final Item CINNAMON_ROLL = registerItem("cinnamon_roll", new Item(new Item.Settings().food(ModFoodComponents.CINNAMON_ROLL).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "cinnamon_roll")))));
++    public static final Item CROISSANT = registerItem("croissant", new Item(new Item.Settings().food(ModFoodComponents.CROISSANT).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "croissant")))));
++
++    //register item helper method
++    private static Item registerItem(String name, Item item){
++        return Registry.register(Registries.ITEM, Identifier.of(RayusBakery.MOD_ID, name), item);
++    }
++
++    public static void registerModItems(){
++        RayusBakery.LOGGER.info("Registering Mod Items for " + RayusBakery.MOD_ID);
++    }
++}
+Index: src/main/resources/data/rayus-bakery/recipe/strawberry_cake.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/data/rayus-bakery/recipe/strawberry_cake.json b/src/main/resources/data/rayus-bakery/recipe/strawberry_cake.json
+new file mode 100644
+--- /dev/null	(date 1743715952146)
++++ b/src/main/resources/data/rayus-bakery/recipe/strawberry_cake.json	(date 1743715952146)
+@@ -0,0 +1,19 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "pattern": [
++    "#$#",
++    " M ",
++    "SFS"
++  ],
++  "key": {
++    "#": "minecraft:sugar",
++    "$": "minecraft:egg",
++    "M": "minecraft:milk_bucket",
++    "S": "rayus-bakery:strawberry",
++    "F": "rayus-bakery:flour_sack"
++  },
++  "result": {
++    "count": 4,
++    "id": "rayus-bakery:strawberry_cake"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/strawberry_cake.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/strawberry_cake.json b/src/main/resources/assets/rayus-bakery/models/item/strawberry_cake.json
+new file mode 100644
+--- /dev/null	(date 1743637727786)
++++ b/src/main/resources/assets/rayus-bakery/models/item/strawberry_cake.json	(date 1743637727786)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/strawberry_cake"
++  }
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/block/custom/Chopping_Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/block/custom/Chopping_Board.java b/src/main/java/net/rayusbakery/modid/block/custom/Chopping_Board.java
+new file mode 100644
+--- /dev/null	(date 1743722225997)
++++ b/src/main/java/net/rayusbakery/modid/block/custom/Chopping_Board.java	(date 1743722225997)
+@@ -0,0 +1,34 @@
++package net.rayusbakery.modid.block.custom;
++
++import com.mojang.serialization.MapCodec;
++import net.minecraft.block.Block;
++import net.minecraft.block.BlockState;
++import net.minecraft.block.HorizontalFacingBlock;
++import net.minecraft.item.ItemPlacementContext;
++import net.minecraft.state.StateManager;
++import org.jetbrains.annotations.Nullable;
++
++public class Chopping_Board extends HorizontalFacingBlock {
++
++    public static final MapCodec<Chopping_Board> CODEC = createCodec(Chopping_Board::new);
++
++    public Chopping_Board(Settings settings){
++        super(settings);
++    }
++
++    @Override
++    protected MapCodec<? extends HorizontalFacingBlock> getCodec(){
++        return CODEC;
++    }
++
++    @Nullable
++    @Override
++    public BlockState getPlacementState(ItemPlacementContext ctx){
++        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
++    }
++
++    @Override
++    protected void appendProperties(StateManager.Builder<Block, BlockState> builder){
++        builder.add(FACING);
++    }
++}
+Index: src/main/resources/assets/rayus-bakery/models/item/flour_sack.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/flour_sack.json b/src/main/resources/assets/rayus-bakery/models/item/flour_sack.json
+new file mode 100644
+--- /dev/null	(date 1743677664210)
++++ b/src/main/resources/assets/rayus-bakery/models/item/flour_sack.json	(date 1743677664210)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/flour_sack"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/flour_sack.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/flour_sack.json b/src/main/resources/assets/rayus-bakery/items/flour_sack.json
+new file mode 100644
+--- /dev/null	(date 1743677664194)
++++ b/src/main/resources/assets/rayus-bakery/items/flour_sack.json	(date 1743677664194)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/flour_sack"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/dango.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/dango.json b/src/main/resources/assets/rayus-bakery/items/dango.json
+new file mode 100644
+--- /dev/null	(date 1743677890007)
++++ b/src/main/resources/assets/rayus-bakery/items/dango.json	(date 1743677890007)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/dango"
++  }
++}
+\ No newline at end of file
+Index: src/main/java/net/rayusbakery/modid/RayusBakeryClient.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/rayusbakery/modid/RayusBakeryClient.java b/src/main/java/net/rayusbakery/modid/RayusBakeryClient.java
+new file mode 100644
+--- /dev/null	(date 1743475347927)
++++ b/src/main/java/net/rayusbakery/modid/RayusBakeryClient.java	(date 1743475347927)
+@@ -0,0 +1,10 @@
++package net.rayusbakery.modid;
++
++import net.fabricmc.api.ClientModInitializer;
++
++public class RayusBakeryClient implements ClientModInitializer {
++    @Override
++    public void onInitializeClient(){
++
++    }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/lemon.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/lemon.json b/src/main/resources/assets/rayus-bakery/items/lemon.json
+new file mode 100644
+--- /dev/null	(date 1743480956784)
++++ b/src/main/resources/assets/rayus-bakery/items/lemon.json	(date 1743480956784)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/lemon"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/cinnamon_roll.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/cinnamon_roll.json b/src/main/resources/assets/rayus-bakery/items/cinnamon_roll.json
+new file mode 100644
+--- /dev/null	(date 1743677890041)
++++ b/src/main/resources/assets/rayus-bakery/items/cinnamon_roll.json	(date 1743677890041)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/cinnamon_roll"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/cinnamon_roll.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/cinnamon_roll.json b/src/main/resources/assets/rayus-bakery/models/item/cinnamon_roll.json
+new file mode 100644
+--- /dev/null	(date 1743677889999)
++++ b/src/main/resources/assets/rayus-bakery/models/item/cinnamon_roll.json	(date 1743677889999)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/cinnamon_roll"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/dango.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/dango.json b/src/main/resources/assets/rayus-bakery/models/item/dango.json
+new file mode 100644
+--- /dev/null	(date 1743677890013)
++++ b/src/main/resources/assets/rayus-bakery/models/item/dango.json	(date 1743677890013)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/dango"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/croissant.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/croissant.json b/src/main/resources/assets/rayus-bakery/items/croissant.json
+new file mode 100644
+--- /dev/null	(date 1743677890033)
++++ b/src/main/resources/assets/rayus-bakery/items/croissant.json	(date 1743677890033)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/croissant"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/items/lime.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/items/lime.json b/src/main/resources/assets/rayus-bakery/items/lime.json
+new file mode 100644
+--- /dev/null	(date 1743482268050)
++++ b/src/main/resources/assets/rayus-bakery/items/lime.json	(date 1743482268050)
+@@ -0,0 +1,6 @@
++{
++  "model": {
++    "type": "minecraft:model",
++    "model": "rayus-bakery:item/lime"
++  }
++}
+\ No newline at end of file
+Index: src/main/resources/assets/rayus-bakery/models/item/croissant.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/rayus-bakery/models/item/croissant.json b/src/main/resources/assets/rayus-bakery/models/item/croissant.json
+new file mode 100644
+--- /dev/null	(date 1743677890019)
++++ b/src/main/resources/assets/rayus-bakery/models/item/croissant.json	(date 1743677890019)
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "rayus-bakery:item/croissant"
++  }
++}
+\ No newline at end of file
+diff --git a/src/main/resources/assets/rayus-bakery/textures/block/chopping_board_base.png b/src/main/resources/assets/rayus-bakery/textures/block/chopping_board_base.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b0e1d63c70c151552987f73a5bf23710d293dd26
+GIT binary patch
+literal 338
+zc%17D@N?(olHy`uVBq!ia0vp^3LwnE1|*BCs=fdz#^NA%Cx&(BWL^T<Jf1F&ArbD$
+zI$tLI`~U4SKbwHSv&RgVUp#oztj}|d%O>I||J@%aIzojfHuV&S9r_<DbZeuQ{r+_m
+z8B;7d8e|xXUNo22Kj>pT8Tf`FfJ1`q>f=&|O;2C+E$n6%X^A+%=km=~!^9!*+WyCy
+zZx<z;Z}Qrpx?w^4PdSk<3hs?EE`=NqyqOi)57hL@eJLqt&=Ei2)SSh4U^>S{X9ipG
+z12RsZH5~ja4D3RM71uB{iF%x<6iQQEW7Dvdb%s<|apPRJ|Me3RPek&jS!|N%>7Apo
+z@ui}vmqa38gC*0G<On8bG3WHdGM=kiU#QBtwsK57Y8#ijm`{SY@uC1a@j-xr;X>k7
+V#ob|#{sRMv!PC{xWt~$(697RTe$W5_
+
+diff --git a/src/main/resources/assets/rayus-bakery/textures/block/woodtexture.png b/src/main/resources/assets/rayus-bakery/textures/block/woodtexture.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..68dd27b5d42aa27d66cd36e49fbb5836bfb55e7b
+GIT binary patch
+literal 170
+zc%17D@N?(olHy`uVBq!ia0vp^0wB!61|;P_|4#%`jKx9jP7LeL$-D$|QaoK8LoEE0
+zb-qmacb<VYUA`vKqU5o%a*sdHS&4MjKmQNzw&yv<Wy6zi|2H9`<c)47TSE-PCdm|r
+zNWBf0AN*ghaD=IBt${qd^Z&l(OLjI$)ISP#o|JooN6NIJG0}vF%~^thL4-?Q@OjOo
+RLqPi&JYD@<);T3K0RYkDH<|zd
+

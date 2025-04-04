@@ -1,0 +1,20 @@
+{
+  "item.rayus-bakery.blueberry": "Blueberry",
+  "item.rayus-bakery.cheesecake": "Cheesecake",
+  "item.rayus-bakery.cherry": "Cherry",
+  "item.rayus-bakery.chopping_board": "Chopping Board",
+  "item.rayus-bakery.cinnamon_roll": "Cinnamon Roll",
+  "item.rayus-bakery.croissant": "Croissant",
+  "item.rayus-bakery.dango": "Dango",
+  "item.rayus-bakery.flour_sack": "Flour Sack",
+  "item.rayus-bakery.key_lime_pie": "Key Lime Pie",
+  "item.rayus-bakery.lemon": "Lemon",
+  "item.rayus-bakery.lemon_sugar_cookie": "Lemon Sugar Cookie",
+  "item.rayus-bakery.lime": "Lime",
+  "item.rayus-bakery.orange": "Orange",
+  "item.rayus-bakery.strawberry": "Strawberry",
+  "item.rayus-bakery.strawberry_cake": "Strawberry Cake",
+
+  "itemgroup.rayus-bakery.rayus_bakery_items": "Rayu's Bakery Items",
+  "itemgroup.rayus-bakery.rayus_bakery_blocks": "Rayu's Bakery Blocks"
+}
