@@ -8,11 +8,11 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import org.jetbrains.annotations.Nullable;
 
-public class Cutting_Board extends HorizontalFacingBlock {
+public class Chopping_Board extends HorizontalFacingBlock {
 
-    public static final MapCodec<Cutting_Board> CODEC = createCodec(Cutting_Board::new);
+    public static final MapCodec<Chopping_Board> CODEC = createCodec(Chopping_Board::new);
 
-    public Cutting_Board(Settings settings){
+    public Chopping_Board(Settings settings){
         super(settings);
     }
 

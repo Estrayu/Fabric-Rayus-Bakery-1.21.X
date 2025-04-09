@@ -35,6 +35,9 @@ public class ModItemGroups {
                         entries.add(ModItems.LEMON_SUGAR_COOKIE);
                         entries.add(ModItems.STRAWBERRY_CAKE);
 
+                        //drinks a-z
+                        entries.add(ModItems.MILK_TEA);
+
                         //food items a-z
                         entries.add(ModItems.CINNAMON_ROLL);
                         entries.add(ModItems.CROISSANT);

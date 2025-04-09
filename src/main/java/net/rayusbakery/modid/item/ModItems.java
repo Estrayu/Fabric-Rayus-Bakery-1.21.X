@@ -29,6 +29,9 @@ public class ModItems {
     public static final Item LEMON_SUGAR_COOKIE = registerItem("lemon_sugar_cookie", new Item(new Item.Settings().food(ModFoodComponents.LEMON_SUGAR_COOKIE).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "lemon_sugar_cookie")))));
     public static final Item STRAWBERRY_CAKE = registerItem("strawberry_cake", new Item(new Item.Settings().food(ModFoodComponents.STRAWBERRY_CAKE).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "strawberry_cake")))));
 
+    //drinks a-z
+    public static final Item MILK_TEA = registerItem("milk_tea", new Item(new Item.Settings().food(ModFoodComponents.MILK_TEA).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "milk_tea")))));
+
     //food items a-z
     public static final Item CINNAMON_ROLL = registerItem("cinnamon_roll", new Item(new Item.Settings().food(ModFoodComponents.CINNAMON_ROLL).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "cinnamon_roll")))));
     public static final Item CROISSANT = registerItem("croissant", new Item(new Item.Settings().food(ModFoodComponents.CROISSANT).registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RayusBakery.MOD_ID, "croissant")))));

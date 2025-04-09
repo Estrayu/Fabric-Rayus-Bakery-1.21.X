@@ -21,6 +21,9 @@ public class ModFoodComponents {
     public static final FoodComponent LEMON_SUGAR_COOKIE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodComponent STRAWBERRY_CAKE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
 
+    //food components (drinks a-z)
+    public static final FoodComponent MILK_TEA = new FoodComponent.Builder().nutrition(4).saturationModifier(0.2f).build();
+
     //food components (food items a-z)
     public static final FoodComponent CINNAMON_ROLL = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodComponent CROISSANT = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
