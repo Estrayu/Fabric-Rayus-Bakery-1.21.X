@@ -1,34 +1,39 @@
 package net.rayusbakery.modid.block.custom;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 
-public class Chopping_Board extends HorizontalFacingBlock {
-
-    public static final MapCodec<Chopping_Board> CODEC = createCodec(Chopping_Board::new);
+public class Chopping_Board extends Block {
 
     public Chopping_Board(Settings settings){
         super(settings);
     }
 
+    //custom functionality component
     @Override
-    protected MapCodec<? extends HorizontalFacingBlock> getCodec(){
-        return CODEC;
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit){
+        if(!world.isClient){
+            player.sendMessage(Text.literal("Hello, world!"), false);
+        }
+
+        return ActionResult.SUCCESS;
     }
 
-    @Nullable
+    //custom  voxelShape component
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx){
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context){
+        return VoxelShapes.cuboid(0f, 0f, 0f, 1f, 1.0f, 0.5f);
     }
 
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder){
-        builder.add(FACING);
-    }
+
 }

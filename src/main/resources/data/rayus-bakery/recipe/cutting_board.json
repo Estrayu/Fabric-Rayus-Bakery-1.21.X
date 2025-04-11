@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "WSW",
+    "   "
+  ],
+  "key": {
+    "W": "minecraft:oak_planks",
+    "S": "minecraft:stone"
+  },
+
+  "result": {
+    "count": 1,
+    "id": "rayus-bakery:chopping_board"
+  }
+}
